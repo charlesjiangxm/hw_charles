@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import imp
 import argparse
 from pprint import pprint
 import os

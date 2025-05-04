@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import os
-import imp
 import argparse
 import subprocess
 import time
