@@ -1,9 +1,10 @@
 override DEPTH = ../../../..
 -include ${DEPTH}/tree.make
 -include ${DEPTH}/tools/make/common.make
-override SYSTEMC_INC_DIR   = $(VCS_HOME)/include/systemc23
+override SYSTEMC_INC_DIR   = $(VCS_HOME)/include/systemc231
 override SYSTEMC_LIB_DIR   = $(VCS_HOME)/linux64/lib
-override SYSTEMC_LIBRARIES = libsystemc23-gcc472-64.a
+#override SYSTEMC_LIBRARIES = libsystemc23-gcc472-64.a
+override SYSTEMC_LIBRARIES = libsystemc.a
 include ../../../../cmod/Makefile
 UVMCONNECT_HOME  := ${TOT}/third_party_tools/uvmc-2.3.0
 

@@ -7,40 +7,41 @@ TREE_MAKE := tree.make
 ## _default should always be the first dependency (you can add extra local actions with default::)
 ##
 
-USE_NV_ENV ?= 0
+USE_NV_ENV ?= 1
 USE_VM_ENV ?= 0
 
 NV_USE_DESIGNWARE ?= 1
-NV_DESIGNWARE_DIR ?= /home/tools/synopsys/syn_2011.09/dw/sim_ver
-NV_CPP  ?= /home/utils/gcc-4.8.2/bin/cpp
-NV_GCC  ?= /home/utils/gcc-4.8.2/bin/gcc
-NV_CXX  ?= /home/utils/gcc-4.8.2/bin/g++
-NV_PERL ?= /home/utils/perl-5.10/5.10.0-threads-64/bin/perl
-NV_JAVA ?= /home/utils/java/jdk1.8.0_131/bin/java
-NV_SYSTEMC ?= /home/ip/shared/inf/SystemC/1.0/20151112/systemc-2.3.0/GCC472_64_DBG
-NV_PROJ ?= nv_small nv_small_256 nv_small_256_full nv_medium_512 nv_medium_1024_full nv_large
-NV_PYTHON 	?= /home/tools/continuum/Anaconda3-5.0.1/bin/python
-NV_VERDI_HOME ?= /home/tools/debussy/verdi3_2016.06-SP2-9
-NV_NOVAS_HOME ?= /home/tools/debussy/verdi3_2016.06-SP2-9
-NV_VCS_HOME   ?= /home/tools/vcs/mx-2016.06-SP2-4
+NV_DESIGNWARE_DIR ?= /opt/synopsys/syn/R-2020.09-SP4/dw/sim_ver
+NV_CPP  ?= /bin/cpp
+NV_GCC  ?= /bin/gcc
+NV_CXX  ?= /bin/g++
+NV_PERL ?= /bin/perl
+NV_JAVA ?= /bin/java
+#NV_SYSTEMC ?= /opt/synopsys/vcs/Q-2020.03-SP2-7/include/systemc230
+NV_SYSTEMC ?= /opt/systemc231
+NV_PROJ ?= nv_small nv_small_256_full nv_medium_1024_full nv_large # nv_small nv_small_256 nv_small_256_full nv_medium_512 nv_medium_1024_full nv_large 
+NV_PYTHON 	?= /home/ic/anaconda3/bin/python
+NV_VERDI_HOME ?= /opt/synopsys/verdi/R-2020.12-SP1
+NV_NOVAS_HOME ?= /opt/synopsys/verdi/R-2020.12-SP1
+NV_VCS_HOME   ?= /opt/synopsys/vcs/Q-2020.03-SP2-7
 NV_VERILATOR  ?= verilator
-NV_CLANG      ?= /home/utils/llvm-4.0.1/bin/clang
+NV_CLANG      ?= clang
 
 VM_USE_DESIGNWARE ?= 1
-VM_DESIGNWARE_DIR ?= /home/tools/synopsys/syn_2011.09/dw/sim_ver
-VM_CPP  ?= /usr/local/bin/cpp
-VM_GCC  ?= /usr/local/bin/gcc
-VM_CXX  ?= /usr/local/bin/g++
-VM_PERL ?= /usr/bin/perl
-VM_JAVA ?= /usr/bin/java
-VM_SYSTEMC ?= /usr/local/systemc-2.3
-VM_PROJ ?= nv_small nv_small_256 nv_small_256_full nv_medium_512 nv_medium_1024_full nv_large
-VM_PYTHON	?= /home/tools/continuum/Anaconda3-5.0.1/bin/python
-VM_VERDI_HOME ?= /home/tools/debussy/verdi3_2016.06-SP2-9
-VM_NOVAS_HOME ?= /home/tools/debussy/verdi3_2016.06-SP2-9
-VM_VCS_HOME   ?= /home/tools/vcs/mx-2016.06-SP2-4
+VM_DESIGNWARE_DIR ?= /opt/synopsys/syn/R-2020.09-SP4/dw/sim_ver
+VM_CPP  ?= /bin/cpp
+VM_GCC  ?= /bin/gcc
+VM_CXX  ?= /bin/g++
+VM_PERL ?= /bin/perl
+VM_JAVA ?= /bin/java
+VM_SYSTEMC ?= /opt/systemc231
+VM_PROJ ?= nv_small nv_small_256_full nv_medium_1024_full nv_large # nv_small nv_small_256 nv_small_256_full nv_medium_512 nv_medium_1024_full nv_large 
+VM_PYTHON	?= /home/ic/anaconda3/bin/python
+VM_VERDI_HOME ?= /opt/synopsys/verdi/R-2020.12-SP1
+VM_NOVAS_HOME ?= /opt/synopsys/verdi/R-2020.12-SP1
+VM_VCS_HOME   ?= /opt/synopsys/vcs/Q-2020.03-SP2-7
 VM_VERILATOR  ?= verilator
-VM_CLANG      ?= /home/utils/llvm-4.0.1/bin/clang
+VM_CLANG      ?= clang
 
 default: $(TREE_MAKE)
 $(TREE_MAKE): Makefile

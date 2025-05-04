@@ -232,7 +232,7 @@ VCS_ARGS    := ${COMMON_DIRS} \
                ${VCS_OK_WARNINGS} \
                ${VERDI_HOME}/share/PLI/VCS/LINUX64/pli.a \
                +vcsd \
-			   -parallel+sva+tgl \
+			         +sva+tgl \
                -P ${VERDI_HOME}/share/PLI/VCS/LINUX64/novas.tab 
 
 # add 'COVERAGE := 1' in tree.make
@@ -274,7 +274,7 @@ endif
 #   SYSC_VER = Specify the SystemC version that Syscan should use (For example 230,220)
 
 SYSCAN_EXE   := syscan
-SYSC_VER     ?= 230
+SYSC_VER     ?= 231
 _SYSC_VER    ?= -sysc=$(SYSC_VER)
 
 
@@ -287,7 +287,7 @@ SYSC_SRC_TB   += ${TOP_SCSV_ADAPTER_DIR}/sc/nvdla_top_sc_adapter.cpp:nvdla_top_s
 SYSC_SRC      := ${SYSC_SRC_UVMC} ${subst ${TOT},${TOT}/${OUTDIR}/${PROJECT},${SYSC_SRC_TB}}
 
 SYSC_CINCDIRS    := ${UVMCONNECT_HOME}/src/connect/sc
-SYSC_CINCDIRS    += $(VCS_HOME)/include/systemc23
+SYSC_CINCDIRS    += $(VCS_HOME)/include/systemc231
 SYSC_CINCDIRS    += ${CMOD_DIR}/include
 SYSC_CINCDIRS_TB += ${SCSV_COMMON_DIR}/sc
 SYSC_CINCDIRS_TB += ${TOP_SCSV_ADAPTER_DIR}/sc
@@ -331,7 +331,7 @@ sysc_build: ${VERIF_DST_FILES}
 
 vcs_build: sysc_build ${DEFS_FILE} ${DUT_FILES} ${DPI_FILES} ${UVMC_FILES}
 	${MKDIRP} ${OUT_DIR} && cd ${OUT_DIR} && \
-	$(VCS_HOME)/bin/vcs -sysc=230 ${VCS_ARGS} ${VCS_LIBS_ALL} ${VCS_LDFLAGS} ${VCS_CFLAGS} ${DEFS_FILE} ${DUT_FILES} ${TB_FILES} ${DPI_FILES} -l ${COMPILELOG} -o ${VCS_EXE} -Mdir=csrc
+	$(VCS_HOME)/bin/vcs -sysc=${SYSC_VER} ${VCS_ARGS} ${VCS_LIBS_ALL} ${VCS_LDFLAGS} ${VCS_CFLAGS} ${DEFS_FILE} ${DUT_FILES} ${TB_FILES} ${DPI_FILES} -l ${COMPILELOG} -o ${VCS_EXE} -Mdir=csrc
 
 gen_verdi_cmd:
 	@echo "#!/bin/sh"                        > ${OUT_DIR}/run_verdi.sh

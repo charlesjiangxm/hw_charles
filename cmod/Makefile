@@ -17,7 +17,7 @@ PREFIX ?=$(BUILD_DIR)/release
 
 SYSTEMC_INC_DIR ?= $(SYSTEMC)/include
 SYSTEMC_LIB_DIR ?= $(SYSTEMC)/lib-linux64
-SYSTEMC_LIBRARIES ?= libsystemc-2.3.0.so
+SYSTEMC_LIBRARIES ?= libsystemc.so
 
 SRCS := \
 	$(SRC_DIR)/nvdla_payload/dla_b_transport_payload.cpp \
@@ -157,6 +157,7 @@ LD_FLAGS  := $(addprefix -L,$(LD_DIRS))
 
 CPPFLAGS ?= $(INC_FLAGS) -MMD -MP -fPIC -Wall -Werror -DSC_INCLUDE_DYNAMIC_PROCESSES -Wp,-w -std=c++11
 LDFLAGS ?= -shared $(addprefix -l,$($(notdir $(SYSTEMC_LIBRARIES)):lib%.so=%)) $(LD_FLAGS)
+
 
 $(BUILD_DIR)/$(TARGET): $(OBJS) 
 	$(CC) $(OBJS) -o $@ $(LDFLAGS) -L$(BUILD_DIR)
