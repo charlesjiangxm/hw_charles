@@ -1,7 +1,7 @@
-from ..src import parse_qemu_log
+from src import parse_qemu_log
 
 if __name__ == '__main__':
-    in_dir = "db/lenet_raw"
+    in_dir = "../db/lenet"
     workload = parse_qemu_log.Workload(
         in_dir=in_dir,
         in_compilation=True,
